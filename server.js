@@ -22,6 +22,7 @@ app.post('/api/contact', async (req, res) => {
 🚀 *New Lead from Newtone Web*
 
 👤 *Name:* ${payload.fullName}
+🏢 *Company:* ${payload.companyName || 'Not provided'}
 📞 *Phone:* ${payload.phone || 'Not provided'}
 📧 *Email:* ${payload.email || 'Not provided'}
     `.trim();

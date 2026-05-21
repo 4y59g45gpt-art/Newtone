@@ -12,8 +12,8 @@ const services = [
     bullets: [
       "სოც. მედია: 10 პოსტი (8 სტატიკური დიზაინი / 2 კარუსელი)",
       "Copywriting: პოსტების ტექსტების მომზადება",
-      "Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით (აუდიტორიის სეგმენტაცია).",
-      "Print Design: თვეში 1 საბეჭდი ფაილის მომზადება (მაგ: სავიზიტო ბარათი ან ფლაერი).",
+      "Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით (აუდიტორიის სეგმენტაცია)",
+      "Print Design: თვეში 1 საბეჭდი ფაილის მომზადება (მაგ: სავიზიტო ბარათი ან ფლაერი)",
     ],
   },
   {
@@ -25,11 +25,11 @@ const services = [
     price: "GEL 650",
     bullets: [
       "სოც. მედია: 10 პოსტი (8 სტატიკური დიზაინი / 2 კარუსელი, კვირაში 3 სთორი)",
-      "Reels / TikTok: 2 ვიდეოს გადაღება (მობილურით) + პროფესიონალური მონტაჟი.",
-      "Copywriting: პოსტების ტექსტების მომზადება.",
-      "Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით (აუდიტორიის სეგმენტაცია).",
-      "Print Design: თვეში 1 საბეჭდი ფაილის მომზადება (მაგ: ბანერი ან მენიუს 1 გვერდი).",
-      "Reporting: თვის ბოლოს შედეგების მოკლე მიმოხილვა.",
+      "Reels / TikTok: 2 ვიდეოს გადაღება (მობილურით) + პროფესიონალური მონტაჟი",
+      "Copywriting: პოსტების ტექსტების მომზადება",
+      "Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით (აუდიტორიის სეგმენტაცია)",
+      "Print Design: თვეში 1 საბეჭდი ფაილის მომზადება (მაგ: ბანერი ან მენიუს 1 გვერდი)",
+      "Reporting: თვის ბოლოს შედეგების მოკლე მიმოხილვა",
     ],
   },
   {
@@ -40,11 +40,11 @@ const services = [
     text: "",
     price: "GEL 850",
     bullets: [
-      "სოც. მედია: 10 პოსტი (8 სტატიკური დიზაინი / 2 კარუსელი, კვირაში 3 სთორი).",
-      "Reels / TikTok: 4 ვიდეოს გადაღება და მონტაჟი ან Motion Design. (კვირაში 1 ვიდეო).",
-      "Copywriting: პოსტების ტექსტების მომზადება.",
-      "Meta & TikTok Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით (აუდიტორიის სეგმენტაცია).",
-      "Print Design: თვეში 2 საბეჭდი ფაილის მომზადება (მაგ: ბანერი ან მენიუ, შეფუთვა/ეტიკეტი, 2 გვერდი).",
+      "სოც. მედია: 10 პოსტი (8 სტატიკური დიზაინი / 2 კარუსელი, კვირაში 3 სთორი)",
+      "Reels / TikTok: 4 ვიდეოს გადაღება და მონტაჟი ან Motion Design (კვირაში 1 ვიდეო)",
+      "Copywriting: პოსტების ტექსტების მომზადება",
+      "Meta & TikTok Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით (აუდიტორიის სეგმენტაცია)",
+      "Print Design: თვეში 2 საბეჭდი ფაილის მომზადება (მაგ: ბანერი ან მენიუ, შეფუთვა/ეტიკეტი, 2 გვერდი)",
     ],
   },
   {
@@ -291,7 +291,7 @@ function serviceDetailPage(service, backHref = "#services") {
     'social-ads': [
       'Meta & TikTok Advertising',
       'სარეკლამო კამპანიის აწყობა Ads Manager-ით',
-      'ბიუჯეტირება.',
+      'ბიუჯეტირება',
       'ანალიტიკა / რეპორტინგი',
     ],
     'content': [
@@ -363,6 +363,10 @@ function contactPage() {
           <label>
             <span>Name / Lastname</span>
             <input name="fullName" placeholder="Enter your full name" required />
+          </label>
+          <label>
+            <span>Company Name</span>
+            <input name="companyName" placeholder="Enter your company name" />
           </label>
           <label>
             <span>Phone Number</span>
