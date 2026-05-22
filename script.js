@@ -323,7 +323,6 @@ function serviceDetailPage(service, backHref = "#services") {
   const isGrouped = Object.prototype.hasOwnProperty.call(GROUP_BENEFITS, service.id);
   const bullets = isGrouped ? GROUP_BENEFITS[service.id] : service.bullets;
   const priceHtml = isGrouped ? '' : `<span class="price">${service.price}</span>`;
-  const connectHref = `#contact?from=${encodeURIComponent(service.title)}`;
 
   return `
     <section class="page">
@@ -340,7 +339,7 @@ function serviceDetailPage(service, backHref = "#services") {
           ${bullets.map((bullet) => `<li>${bullet}</li>`).join('')}
         </ul>
         <div class="detail-footer">
-          <a class="small-cta" href="${connectHref}">Let's connect →</a>
+          <a class="small-cta" href="#contact">Let's connect →</a>
           ${priceHtml}
         </div>
       </article>
@@ -412,11 +411,7 @@ function attachFormHandler() {
 
     const submitButton = form.querySelector("button");
     const formData = new FormData(form);
-    
-    // Extract source from URL hash (e.g., #contact?from=Service+Name)
-    const urlParams = new URLSearchParams(window.location.hash.includes('?') ? window.location.hash.split('?')[1] : '');
-    const source = urlParams.get('from') || 'Direct / General';
-    const payload = { ...Object.fromEntries(formData.entries()), source };
+    const payload = Object.fromEntries(formData.entries());
 
     const nameFilled = payload.fullName && payload.fullName.trim().length > 0;
     const emailFilled = payload.email && payload.email.trim().length > 0;
@@ -523,7 +518,7 @@ render();
   const footer = document.querySelector(".site-footer");
   if (footer && !footer.querySelector(".footer-contact-btn")) {
     const btn = document.createElement("a");
-    btn.href = "#contact?from=Footer";
+    btn.href = "#contact";
     btn.className = "gradient-button footer-contact-btn";
     btn.textContent = "Contact Us";
     footer.prepend(btn);
