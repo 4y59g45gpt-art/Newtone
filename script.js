@@ -1,3 +1,8 @@
+// Disable automatic scroll restoration to ensure every route change starts at the top
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 const app = document.querySelector("#app");
 const navLinks = document.querySelectorAll("[data-nav]");
 
@@ -348,11 +353,11 @@ function serviceDetailPage(service, backHref = "#services") {
   `;
 }
 
-function contactPage() {
+function contactPage(backHref = "#home") {
   return `
     <section class="page">
       <div class="center-hero" style="position: relative;">
-        <a class="back-button" href="#home">← Back</a>
+        <a class="back-button" href="${backHref}">← Back</a>
         <span class="badge"><span>✧</span> Full-Service Digital Agency</span>
         <h1 class="page-title">Contact Us</h1>
         <p class="subcopy">From branding and UX design to AI-powered automation and marketing, we transform brands with creative and intuitive digital solutions.</p>
@@ -480,6 +485,7 @@ function attachFormHandler() {
 }
 
 let lastMainPage = "services";
+let lastRoute = window.location.hash || "#home";
 
 function render() {
   const route = footerAwareHash();
@@ -494,7 +500,7 @@ function render() {
     const backHref = lastMainPage === "services-additional" ? "#services-additional" : "#services";
     app.innerHTML = serviceDetailPage(services.find((item) => item.id === serviceId), backHref);
   }
-  else if (route === "contact") app.innerHTML = contactPage();
+  else if (route.startsWith("contact")) app.innerHTML = contactPage(lastRoute);
   else if (route === "services-additional") app.innerHTML = additionalServicesPage();
   else app.innerHTML = statePage("Coming Soon...");
 
@@ -502,11 +508,16 @@ function render() {
     lastMainPage = route;
   }
 
+  // Store the route to return to when navigating to Contact
+  if (!route.startsWith("contact")) {
+    lastRoute = window.location.hash || "#home";
+  }
+
   attachFormHandler();
 
   // Track virtual page view for SPA routing
   if (typeof gtag === 'function') {
-    gtag('config', 'G-XXXXXXXXXX', {
+    gtag('config', 'G-HBKWN8VG6N', {
       'page_path': location.hash || '#home'
     });
   }
