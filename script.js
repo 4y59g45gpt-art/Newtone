@@ -456,6 +456,14 @@ function attachFormHandler() {
       submitButton.textContent = "Sent!";
       submitButton.classList.add("is-sent");
 
+      // Track successful form submission as a conversion
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          'event_category': 'Contact Form',
+          'event_label': source
+        });
+      }
+
       setTimeout(() => {
         submitButton.textContent = originalText;
         submitButton.classList.remove("is-sent");
@@ -495,6 +503,14 @@ function render() {
   }
 
   attachFormHandler();
+
+  // Track virtual page view for SPA routing
+  if (typeof gtag === 'function') {
+    gtag('config', 'G-XXXXXXXXXX', {
+      'page_path': location.hash || '#home'
+    });
+  }
+
   window.scrollTo({ top: 0, behavior: "auto" });
 }
 
