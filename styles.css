@@ -1282,7 +1282,7 @@ textarea {
     scroll-snap-type: x mandatory;
     scroll-padding-left: 16px;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+    touch-action: pan-y;
     width: 100%;
   }
 
