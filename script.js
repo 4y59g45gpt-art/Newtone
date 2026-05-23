@@ -544,8 +544,10 @@ function render() {
 
   // Track virtual page view for SPA routing
   if (typeof gtag === 'function') {
-    gtag('config', 'G-HBKWN8VG6N', {
-      'page_path': location.hash || '#home'
+    gtag('event', 'page_view', {
+      page_path: location.hash.replace('#', '/') || '/home',
+      page_title: document.title,
+      page_location: window.location.href
     });
   }
 
