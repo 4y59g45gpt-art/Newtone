@@ -6,11 +6,24 @@ if ('scrollRestoration' in history) {
 const app = document.querySelector("#app");
 const navLinks = document.querySelectorAll("[data-nav]");
 
+const UI_ICONS = {
+  eye: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`,
+  target: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+  zap: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-2 10h8l-9 10 2-10H4l9-10z"/></svg>`,
+  layout: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>`,
+  sparkles: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3Z"/></svg>`,
+  megaphone: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>`,
+  fileText: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`,
+  smartphone: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>`,
+  palette: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-3.91 3.91-7.07 3.06-7.07 3.06s-.85-3.16 3.06-7.07"/><path d="M12.93 11.07l1.01 1.01"/></svg>`,
+  plus: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>`
+};
+
 const services = [
   {
     id: "attention",
     title: "Attention",
-    icon: "🧿",
+    icon: UI_ICONS.eye,
     tone: "",
     text: "",
     price: "GEL 420",
@@ -24,7 +37,7 @@ const services = [
   {
     id: "relevance",
     title: "Attention x Relevance",
-    icon: "🎯",
+    icon: UI_ICONS.target,
     tone: "green",
     text: "",
     price: "GEL 650",
@@ -40,8 +53,8 @@ const services = [
   {
     id: "friction",
     title: "Attention = Friction x Relevance",
-    icon: "⚡",
-    tone: "purple",
+    icon: UI_ICONS.zap,
+    tone: "cyan",
     text: "",
     price: "GEL 850",
     bullets: [
@@ -55,8 +68,8 @@ const services = [
   {
     id: "uiux",
     title: "UI/UX Design",
-    icon: "📐",
-    tone: "",
+    icon: UI_ICONS.layout,
+    tone: "cyan",
     text: "We create intuitive, user-centric digital experiences that balance aesthetics with functionality.",
     price: "GEL 420",
     bullets: [
@@ -69,7 +82,7 @@ const services = [
   {
     id: "logo",
     title: "Logo & Brand Design",
-    icon: "✦",
+    icon: UI_ICONS.sparkles,
     tone: "green",
     text: "Memorable identity systems for new brands, rebrands, and campaigns that need a clear visual voice.",
     price: "GEL 400",
@@ -83,7 +96,7 @@ const services = [
   {
     id: "social-ads",
     title: "Social Media Advertising",
-    icon: "📢",
+    icon: UI_ICONS.megaphone,
     tone: "",
     text: "Paid social campaigns designed to reach the right audience and convert attention into real demand.",
     price: "GEL 420",
@@ -97,7 +110,7 @@ const services = [
   {
     id: "content",
     title: "Content Marketing",
-    icon: "📝",
+    icon: UI_ICONS.fileText,
     tone: "green",
     text: "Content strategies are crafted to<br>engage audience and drive brand<br>awareness and customer loyalty.",
     price: "GEL 350",
@@ -111,7 +124,7 @@ const services = [
   {
     id: "social",
     title: "Social Media",
-    icon: "📱",
+    icon: UI_ICONS.smartphone,
     tone: "purple",
     text: "Enhance your brand's presence across social media platforms with our expert social media management services.",
     price: "GEL 350",
@@ -125,7 +138,7 @@ const services = [
   {
     id: "creative",
     title: "Creative Design",
-    icon: "🎨",
+    icon: UI_ICONS.palette,
     tone: "cyan",
     text: "Bring your brand to life with unique visual identities, storytelling, and consistent design systems.",
     price: "GEL 320",
@@ -139,7 +152,7 @@ const services = [
   {
     id: "additional",
     title: "Additional Services",
-    icon: "⚙️",
+    icon: UI_ICONS.plus,
     tone: "cyan", // Light blue/teal
     text: "More focused digital solutions for growing brands.",
     price: "GEL 300",
@@ -193,16 +206,6 @@ function setActiveNav(route) {
 
 function homePage() {
   const homeCards = [services[5], services[8], services[6], services[3]];
-  // Ensure the icons and tones for home cards match the original design
-  homeCards[0].icon = "📢"; // Social Media Advertising
-  homeCards[0].tone = ""; // Default blue
-  homeCards[1].icon = "🎨"; // Creative Design
-  homeCards[1].tone = "cyan";
-  homeCards[2].icon = "📝"; // Content Marketing
-  homeCards[2].tone = "green";
-  homeCards[3].icon = "📐"; // UI/UX Design
-  homeCards[3].tone = "cyan";
-
   return `
     <section class="page home-page">
       <div class="hero-copy">
@@ -237,10 +240,10 @@ function servicesPage() {
   if (s2 && s2.title) s2.title = s2.title.replace(' x Friction x Relevance', ' = Friction x Relevance');
 
   const servicesForGrid = [
-    { ...s0, icon: "🧿", tone: "blue" }, // Card 1: Attention
-    { ...s1, icon: "🎯", tone: "green" }, // Card 2: Attention x Relevance
-    { ...s2, icon: "⚡", tone: "cyan" }, // Card 3: Attention = Friction x Relevance
-    { ...services[9], icon: "⚙️", tone: "cyan" }, // Card 4: Additional Services
+    { ...s0, tone: "" }, // Card 1: Attention (Default Blue)
+    { ...s1, tone: "green" }, // Card 2: Attention x Relevance
+    { ...s2, tone: "cyan" }, // Card 3: Attention = Friction x Relevance
+    { ...services[9], tone: "cyan" }, // Card 4: Additional Services
   ];
   return `
     <section class="page">
