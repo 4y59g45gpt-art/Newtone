@@ -1274,6 +1274,7 @@ textarea {
 
   .hero-services {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     justify-content: flex-start;
@@ -1292,6 +1293,7 @@ textarea {
     max-width: 320px;
     padding: 24px 20px;
     scroll-snap-align: center;
+    flex-shrink: 0;
   }
 
   .service-card {
