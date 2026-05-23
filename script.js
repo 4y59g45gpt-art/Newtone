@@ -484,6 +484,29 @@ function attachFormHandler() {
   });
 }
 
+function initScrollReveal() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Targets headings, cards, and sections
+  const elements = document.querySelectorAll('.service-card, h1, .detail-card, .contact-form, .upper-box, .bottom-box');
+  elements.forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+}
+
 let lastMainPage = "services";
 let lastRoute = window.location.hash || "#home";
 
@@ -514,6 +537,7 @@ function render() {
   }
 
   attachFormHandler();
+  initScrollReveal();
 
   // Track virtual page view for SPA routing
   if (typeof gtag === 'function') {
