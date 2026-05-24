@@ -367,7 +367,6 @@ function contactPage(backHref = "#home") {
       </div>
       <div class="rule"></div>
       <div class="contact-layout">
-        <img class="contact-art" src="assets/figma-image-01.png" alt="" />
         <form class="contact-form" id="leadForm" novalidate>
           <label>
             <span>Name / Lastname</span>
