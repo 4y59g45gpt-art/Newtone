@@ -76,8 +76,8 @@ body {
     linear-gradient(112deg, #050714 0%, #010308 54%, #06162d 100%);
   color: var(--text);
   font-family: "FiraGO", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
+  font-weight: 200;
+  line-height: 1.6;
   background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px, 100% 100%;
 }
 
@@ -96,16 +96,18 @@ h6,
 .gradient-button,
   .ghost-button,
   .back-button,
+  .nav-home,
+  .nav-services,
+  .nav-about,
   .contact-pill,
   .footer-col h2 {
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  letter-spacing: -0.04em;
-  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 a {
@@ -157,8 +159,8 @@ textarea {
   display: flex;
   align-items: center;
   gap: clamp(24px, 3vw, 48px);
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
   justify-content: flex-end;
 }
 
@@ -174,7 +176,6 @@ textarea {
 
 .main-nav a.is-active {
   color: var(--cyan);
-  font-weight: 700;
 }
 
 .contact-pill,
@@ -215,7 +216,7 @@ textarea {
   min-height: 46px;
   padding: 0 24px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 #app {
@@ -247,8 +248,8 @@ textarea {
 .page-title {
   margin: 0;
   color: #fff;
-  font-size: clamp(48px, 5vw, 96px);
-  font-weight: 700;
+  font-size: clamp(42px, 4.5vw, 84px);
+  font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -257,8 +258,9 @@ textarea {
   margin: 24px 0 48px;
   max-width: 60ch; /* Optimized line length for readability */
   color: rgba(255, 255, 255, 0.65);
-  font-size: clamp(18px, 1.6vw, 28px);
-  line-height: 1.7;
+  font-weight: 200;
+  font-size: clamp(16px, 1.4vw, 24px);
+  line-height: 1.6;
 }
 
 .hero-actions {
@@ -281,8 +283,8 @@ textarea {
   min-height: 56px;
   padding: 0 36px;
   border-radius: 12px;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 300;
   letter-spacing: 0.02em;
 }
 
@@ -373,8 +375,8 @@ textarea {
 .service-card h2,
 .service-card h3 {
   margin: 12px 0 4px;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 300;
   line-height: 1.2;
   letter-spacing: 0.01em;
 }
@@ -382,8 +384,8 @@ textarea {
 .service-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.45;
   opacity: 0.80;
   overflow-wrap: anywhere;
 }
@@ -429,7 +431,7 @@ textarea {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.055);
   color: #fff;
-  font-size: clamp(13px, 1vw, 18px);
+  font-size: clamp(12px, 0.9vw, 15px);
   line-height: 1.2;
 }
 
@@ -482,14 +484,14 @@ textarea {
 
 .upper-box .page-title {
   margin-top: 0; /* Reset margin from center-hero */
-  font-size: clamp(48px, 6vw, 80px); /* Large font */
+  font-size: clamp(42px, 5.5vw, 72px); /* Large font */
   color: #fff;
 }
 
 .upper-box .subcopy {
   max-width: 800px; /* Limit width for readability */
   margin: 32px auto 0; /* Increased spacing for breathing room */
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(16px, 1.8vw, 24px);
   color: var(--muted-2);
   line-height: 1.5;
 }
@@ -498,8 +500,8 @@ textarea {
   max-width: 1100px;
   margin: 40px auto 0;
   color: var(--muted);
-  font-size: clamp(20px, 1.6vw, 32px);
-  font-weight: 400;
+  font-size: clamp(18px, 1.4vw, 26px);
+  font-weight: 200;
   line-height: 1.5;
 }
 
@@ -588,7 +590,7 @@ textarea {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-weight: 700;
+  font-weight: 200;
   white-space: nowrap;
   z-index: 2; /* Ensure badge is above icon and glow */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -615,7 +617,7 @@ textarea {
   margin-top: 12px; /* Spacing below paragraph */
   align-self: flex-start; /* Align to left */
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 200;
   color: #00D98C;
 }
 
@@ -637,8 +639,8 @@ textarea {
 
 .detail-card h2 {
   margin: 34px 0;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 400;
   text-align: center;
   color: var(--text);
 }
@@ -651,7 +653,7 @@ textarea {
   color: #fff;
   font-size: 13px;
   letter-spacing: 0.03em;
-  font-weight: 700;
+  font-weight: 300;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 15px rgba(43, 213, 225, 0.4), 0 0 20px rgba(119, 88, 244, 0.2);
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
@@ -672,7 +674,7 @@ textarea {
   list-style: none;
   color: rgba(255,255,255,.72);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .check-list li::before {
@@ -711,13 +713,13 @@ textarea {
 
 .about-layout h2 {
   margin: 0 0 34px;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
 }
 
 .about-layout p {
   color: var(--muted);
-  font-size: clamp(16px, 1.35vw, 24px);
+  font-size: clamp(15px, 1.25vw, 22px);
   line-height: 1.7;
 }
 
@@ -761,7 +763,7 @@ textarea {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-weight: 400;
+  font-weight: 200;
   color: var(--muted);
   opacity: 0.8;
 }
@@ -895,13 +897,13 @@ textarea {
 .footer-col a,
 .footer-bottom {
   color: var(--muted);
-  font-weight: 400;
+  font-weight: 200;
 }
 
 .footer-brand p {
   max-width: 390px;
   margin: 26px 0 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -914,11 +916,11 @@ textarea {
 .footer-col h2 {
   margin: 0 0 18px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .footer-col a {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .social-row {
@@ -951,7 +953,7 @@ textarea {
   margin-top: 50px;
   padding-top: 34px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .footer-bottom span:last-child {
@@ -1063,19 +1065,19 @@ textarea {
 
   .hero-copy h1,
   .page-title {
-    font-size: clamp(48px, 10vw, 72px);
+    font-size: clamp(42px, 9vw, 64px);
   }
 
   .hero-copy p {
     margin: 24px 0 32px;
-    font-size: clamp(28px, 5vw, 42px);
+    font-size: clamp(20px, 4.5vw, 34px);
     line-height: 1.5;
   }
 
   .badge {
     min-height: 40px;
     padding: 0 26px;
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .hero-services {
@@ -1104,12 +1106,12 @@ textarea {
   .service-card h2, .service-card h3 {
     order: 1;
     margin-top: 32px;
-    font-size: clamp(32px, 5vw, 46px);
+    font-size: 36px;
   }
 
   .service-card p {
     order: 2;
-    font-size: 24px;
+    font-size: 20px;
     padding-bottom: 20px;
   }
 
@@ -1123,7 +1125,7 @@ textarea {
   .gradient-button,
   .ghost-button {
     min-height: 74px;
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .center-hero {
@@ -1242,7 +1244,7 @@ textarea {
 
   .hero-copy h1,
   .page-title {
-    font-size: clamp(34px, 8vw, 42px);
+    font-size: clamp(30px, 7.5vw, 38px);
     display: block;
     margin-top: 10px;
   }
@@ -1263,7 +1265,7 @@ textarea {
   .hero-copy p,
   .service-card p {
     order: 2;
-    font-size: 14.5px;
+    font-size: 13.5px;
     margin: 0;
   }
 

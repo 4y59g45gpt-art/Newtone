@@ -112,7 +112,7 @@ const services = [
     title: "Content Marketing",
     icon: UI_ICONS.fileText,
     tone: "green",
-    text: "Content strategies are crafted to<br>engage audience and drive brand<br>awareness and customer loyalty.",
+    text: "Content strategies are crafted to engage audience and drive brand awareness and customer loyalty.",
     price: "GEL 350",
     bullets: [
       "კონტენტის სტრატეგია",
@@ -367,6 +367,7 @@ function contactPage(backHref = "#home") {
       </div>
       <div class="rule"></div>
       <div class="contact-layout">
+        <img class="contact-art" src="assets/figma-image-01.png" alt="" />
         <form class="contact-form" id="leadForm" novalidate>
           <label>
             <span>Name / Lastname</span>

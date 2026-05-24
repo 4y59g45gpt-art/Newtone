@@ -18,19 +18,21 @@ app.post('/api/contact', async (req, res) => {
       return res.status(500).json({ error: "Telegram configuration is missing in environment variables." });
     }
 
-    const message = `
-🚀 *New Lead from Newtone Web*
-
-👤 *Name:* ${payload.fullName}
-🏢 *Company:* ${payload.companyName || 'Not provided'}
-📞 *Phone:* ${payload.phone || 'Not provided'}
-📧 *Email:* ${payload.email || 'Not provided'}
-    `.trim();
+    // Using HTML parse mode as it is much more robust for user input than Markdown
+    const message = [
+      "<b>🚀 New Lead from Newtone Web</b>",
+      "",
+      `<b>👤 Name:</b> ${payload.fullName || 'N/A'}`,
+      `<b>🏢 Company:</b> ${payload.companyName || 'Not provided'}`,
+      `<b>📞 Phone:</b> ${payload.phone || 'Not provided'}`,
+      `<b>📧 Email:</b> ${payload.email || 'Not provided'}`,
+      `<b>🔗 Source:</b> ${payload.source || 'Direct'}`
+    ].join("\n");
 
     const telegramRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "Markdown" }),
+      body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "HTML" }),
     });
 
     if (!telegramRes.ok) {
