@@ -108,7 +108,7 @@ const bulletTranslations = {
   }
 };
 
-let currentLang = localStorage.getItem('newtone_lang') || 'en';
+let currentLang = localStorage.getItem('newtone_lang') || 'ka';
 const t = (key) => i18n[currentLang][key] || key;
 
 const app = document.querySelector("#app");
