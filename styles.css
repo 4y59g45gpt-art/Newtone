@@ -106,6 +106,11 @@ h6,
   letter-spacing: -0.01em;
 }
 
+/* Adjust Georgian hero title font size to fit on two lines */
+body.lang-ka .hero-copy h1 {
+  font-size: clamp(38px, 3vw, 60px); /* Further adjusted for better fit on large screens to ensure two lines */
+}
+
 h1 {
   letter-spacing: -0.03em;
 }
@@ -151,8 +156,61 @@ textarea {
 
 .logo-img {
   display: block;
-  width: clamp(140px, 8.5vw, 180px);
+  width: clamp(160px, 8.5vw, 220px);
   height: auto;
+}
+
+.lang-toggle-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.lang-toggle-btn:hover {
+  color: var(--cyan);
+}
+
+/* Language Divider Line */
+.lang-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--stroke-strong);
+  opacity: 0.8;
+  align-self: center;
+}
+
+/* Card Language Toggle */
+.card-lang-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 6px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--stroke);
+  cursor: pointer;
+  color: var(--muted-2);
+  transition: all 0.2s ease;
+}
+
+.card-lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
 }
 
 .main-nav {
@@ -172,6 +230,32 @@ textarea {
   color: rgba(255, 255, 255, 0.9);
   white-space: nowrap;
   transition: color 0.2s ease;
+  text-transform: none;
+}
+
+/* Georgian Uppercase Support */
+/* Georgian Mtavruli (Uppercase) Fix for Chrome/Safari/Firefox */
+body.lang-ka h1,
+body.lang-ka .page-title,
+body.lang-ka .footer-col h2,
+body.lang-ka .gradient-button,
+body.lang-ka .back-button {
+  text-transform: uppercase !important;
+  /* Mtavruli requires Regular(400) or Bold(700) - Chrome fails on 300 fallback */
+  font-weight: 400 !important;
+  /* locl enables Georgian-specific Unicode mappings; case handles punctuation */
+  font-feature-settings: "locl" on, "case" on !important;
+  /* Mtavruli characters are wider; negative spacing makes them look like Mkhedruli */
+  letter-spacing: 0.02em !important;
+  /* Ensure browser uses FiraGO specifically for the transform */
+  font-family: "FiraGO", -apple-system, sans-serif !important;
+}
+
+/* Force font re-rendering for page titles specifically */
+body.lang-ka .page-title {
+  display: inline-block;
+  width: 100%;
+  font-size: clamp(30px, 3.8vw, 54px) !important;
 }
 
 .main-nav a.is-active {
@@ -217,6 +301,7 @@ textarea {
   padding: 0 24px;
   font-size: 16px;
   font-weight: 400;
+  text-transform: none;
 }
 
 #app {
@@ -248,7 +333,7 @@ textarea {
 .page-title {
   margin: 0;
   color: #fff;
-  font-size: clamp(42px, 4.5vw, 84px);
+  font-size: clamp(36px, 4vw, 76px);
   font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -484,7 +569,7 @@ textarea {
 
 .upper-box .page-title {
   margin-top: 0; /* Reset margin from center-hero */
-  font-size: clamp(42px, 5.5vw, 72px); /* Large font */
+  font-size: clamp(34px, 4.8vw, 62px); /* Reduced maximum to keep headlines on one line */
   color: #fff;
 }
 
@@ -1021,10 +1106,10 @@ textarea {
     top: 0;
     grid-template-columns: auto 1fr auto;
     min-height: 70px;
-    padding: 0 20px;
+    padding: 0 24px;
     border-left: 0;
     border-right: 0;
-    gap: 16px;
+    gap: 20px;
   }
 
   .logo-img {
@@ -1065,7 +1150,7 @@ textarea {
 
   .hero-copy h1,
   .page-title {
-    font-size: clamp(42px, 9vw, 64px);
+    font-size: clamp(34px, 8.5vw, 54px);
   }
 
   .hero-copy p {
@@ -1201,14 +1286,18 @@ textarea {
   }
 
   .contact-pill {
-    min-height: 30px;
-    padding: 0 12px;
-    font-size: 12px;
-    border-radius: 8px;
+    min-height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+    border-radius: 10px;
   }
 
   .logo-img {
-    width: 80px;
+    width: 100px;
+  }
+
+  .lang-toggle-btn {
+    font-size: 10px; /* Made language button smaller for small screens */
   }
 
   .main-nav {
@@ -1244,9 +1333,18 @@ textarea {
 
   .hero-copy h1,
   .page-title {
-    font-size: clamp(30px, 7.5vw, 38px);
+    font-size: clamp(24px, 7vw, 32px);
     display: block;
     margin-top: 10px;
+  }
+
+  /* Adjust Georgian hero title font size for small screens */
+  body.lang-ka .hero-copy h1 {
+    font-size: clamp(26px, 6.5vw, 34px);
+  }
+
+  body.lang-ka .page-title {
+    font-size: clamp(20px, 6vw, 28px) !important;
   }
 
   .center-hero .page-title {
@@ -1256,6 +1354,25 @@ textarea {
   .center-hero {
     padding-top: 30px;
     padding-bottom: 12px;
+  }
+
+  /* Explicitly ensure Georgian headlines are uppercase on small screens */
+  body.lang-ka h1,
+  body.lang-ka .page-title,
+  body.lang-ka .footer-col h2,
+  body.lang-ka .gradient-button,
+  body.lang-ka .back-button {
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+    font-feature-settings: "locl" on, "case" on !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .card-badge {
+    top: 14px;
+    right: 14px;
+    padding: 4px 10px;
+    font-size: 9px;
   }
 
   .center-hero .subcopy {
@@ -1285,6 +1402,10 @@ textarea {
     white-space: nowrap;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .badge span {
+    font-size: 12px;
   }
 
   .hero-title-line {
@@ -1392,10 +1513,20 @@ textarea {
 
   .contact-form input {
     height: 62px;
+    font-size: 16px;
   }
 
   .contact-form textarea {
     min-height: 220px;
+    font-size: 16px;
+  }
+
+  .contact-form label span {
+    font-size: 11px;
+  }
+
+  .contact-form .gradient-button {
+    font-size: 16px;
   }
 
   .footer-brand,
@@ -1447,5 +1578,31 @@ textarea {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive adjustments for iPhone SE and smaller screens */
+@media (max-width: 400px) {
+  .site-header {
+    padding: 0 8px;
+    gap: 8px;
+    min-height: 54px;
+  }
+  .logo {
+    gap: 8px;
+  }
+  .logo-img {
+    width: 80px;
+  }
+  .main-nav {
+    gap: 10px;
+    font-size: 12px;
+  }
+  .contact-pill {
+    padding: 0 10px;
+    min-width: 90px;
+    min-height: 32px;
+    font-size: 12px;
+    border-radius: 8px;
   }
 }

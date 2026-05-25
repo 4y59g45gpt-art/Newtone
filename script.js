@@ -3,8 +3,155 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
+const i18n = {
+  en: {
+    home: "Home", services: "Services", connect: "Contact Us",
+    hero_badge: "Powered by Digital Friction",
+    hero_title: "Unlock Your<br>Digital Potential",
+    hero_desc: "We are Newtone - a team of digital strategists turning marketing chaos into precise calculations and results.",
+    get_started: "Get Started →",
+    learn_more: "Learn more →",
+    back: "← Back",
+    our_services: "Our Services",
+    serv_sub: "Comprehensive digital solutions tailored to transform your business",
+    add_serv: "Additional Services",
+    add_sub: "Specialised offerings available as add-ons.",
+    contact_badge: "Full-Service Digital Agency",
+    contact_title: "Contact Us",
+    contact_sub: "From branding and UX design to AI-powered automation and marketing, we transform brands with creative and intuitive digital solutions.",
+    form_name: "Name / Lastname",
+    form_name_p: "Enter your full name",
+    form_company: "Company Name",
+    form_company_p: "Enter your company name",
+    form_phone: "Phone Number",
+    form_phone_p: "Enter your phone number",
+    form_email: "Email Address",
+    form_email_p: "Enter your email address",
+    form_send: "Send",
+    form_error: "Please fill in your name and at least one contact method (Email or Phone).",
+    form_sending: "Sending...",
+    form_sent: "Sent!",
+    offer: "Limited Time Offer",
+    coming_soon: "Coming Soon...",
+    price_gel: "₾",
+    connect_cta: "Let's connect →"
+  },
+  ka: {
+    home: "მთავარი", services: "სერვისები", connect: "კონტაქტი",
+    hero_badge: "Powered By Digital Friction",
+    hero_title: "გახსენი შენი<br>ციფრული პოტენციალი",
+    hero_desc: "ჩვენ ვართ Newtone - ციფრული სტრატეგების გუნდი, რომელიც მარკეტინგულ ქაოსს ზუსტ გამოთვლებად და შედეგებად გარდაქმნის.",
+    get_started: "დაწყება →",
+    learn_more: "გაიგე მეტი →",
+    back: "← უკან",
+    our_services: "ჩვენი სერვისები",
+    serv_sub: "ციფრული გადაწყვეტილებები თქვენი ბიზნესისთვის.",
+    add_serv: "დამატებითი სერვისები",
+    add_sub: "სპეციალიზებული ციფრული სერვისები.",
+    contact_badge: "სრული ციფრული სააგენტო",
+    contact_title: "კონტაქტი",
+    contact_sub: "ბრენდინგი, UX და AI ავტომატიზაცია — ვქმნით კრეატიულ ციფრულ პროდუქტებს.",
+    form_name: "სახელი / გვარი",
+    form_name_p: "შეიყვანეთ თქვენი სახელი და გვარი",
+    form_company: "კომპანიის სახელი",
+    form_company_p: "შეიყვანეთ კომპანიის სახელი",
+    form_phone: "ტელეფონის ნომერი",
+    form_phone_p: "შეიყვანეთ ტელეფონის ნომერი",
+    form_email: "ელ-ფოსტა",
+    form_email_p: "შეიყვანეთ ელ-ფოსტის მისამართი",
+    form_send: "გაგზავნა",
+    form_error: "შეავსეთ სახელი და საკონტაქტო ინფორმაცია.",
+    form_sending: "მიმდინარეობს...",
+    form_sent: "გაგზავნილია",
+    offer: "სპეც. შეთავაზება",
+    coming_soon: "მალე...",
+    price_gel: "₾",
+    connect_cta: "დაგვიკავშირდით →"
+  }
+};
+
+const serviceTranslations = {
+  attention: { en: "Attention", ka: "Attention" },
+  relevance: { en: "Attention x Relevance", ka: "Attention x Relevance" },
+  friction: { en: "Attention = Friction x Relevance", ka: "Attention = Friction x Relevance" },
+  uiux: { en: "UI/UX Design", ka: "UI/UX Design" },
+  logo: { en: "Logo & Brand Design", ka: "Logo & Brand Design" },
+  "social-ads": { en: "Social Media Advertising", ka: "Social Media Advertising" },
+  content: { en: "Content Marketing", ka: "Content Marketing" },
+  social: { en: "Social Media", ka: "Social Media" },
+  creative: { en: "Creative Design", ka: "Creative Design" },
+  additional: { en: "Additional Services", ka: "Additional Services" }
+};
+
+const serviceDescTranslations = {
+  uiux: { en: "We create intuitive, user-centric digital experiences that balance aesthetics with functionality.", ka: "ვქმნით თანამედროვე, ფუნქციურ და ესთეტიკურ ციფრულ გამოცდილებას, თქვეი ბიზნსესისთვის." },
+  logo: { en: "Memorable identity systems for new brands, rebrands, and campaigns that need a clear visual voice.", ka: "დასამახსოვრებელი იდენტობის სისტემები ახალი ბრენდებისთვის, რებრენდინგისთვის და კამპანიებისთვის." },
+  "social-ads": { en: "Paid social campaigns designed to reach the right audience and convert attention into real demand.", ka: "ფასიანი სოციალური კამპანიები, რომლებიც მიმართულია სწორ აუდიტორიაზე." },
+  content: { en: "Content strategies are crafted to engage audience and drive brand awareness and customer loyalty.", ka: "კონტენტ სტრატეგიები შექმნილია აუდიტორიის ჩასართავად და ბრენდის ცნობადობის გასაზრდელად." },
+  social: { en: "Enhance your brand's presence across social media platforms with our expert social media management services.", ka: "გააძლიერეთ თქვენი ბრენდის ყოფნა სოციალურ პლატფორმებზე ჩვენი მართვის სერვისებით." },
+  creative: { en: "Bring your brand to life with unique visual identities, storytelling, and consistent design systems.", ka: "გააცოცხლეთ თქვენი ბრენდი უნიკალური ვიზუალური იდენტობით და სთორითელინგით." },
+  additional: { en: "More focused digital solutions for growing brands.", ka: "უფრო ფოკუსირებული ციფრული გადაწყვეტილებები მზარდი ბრენდებისთვის." }
+};
+
+const bulletTranslations = {
+  attention: {
+    en: ["Social Media: 10 posts (8 static / 2 carousels)", "Copywriting: Post content preparation", "Advertising: Campaign setup via Ads Manager (Audience segmentation)", "Print Design: 1 print file per month"],
+    ka: ["სოც. მედია: 10 პოსტი (8 სტატიკური დიზაინი / 2 კარუსელი)", "Copywriting: პოსტების ტექსტების მომზადება", "Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით", "Print Design: თვეში 1 საბეჭდი ფაილის მომზადება"]
+  },
+  relevance: {
+    en: ["Social Media: 10 posts (8 static / 2 carousels, 3 stories/week)", "Reels / TikTok: 2 video shoots (mobile) + professional editing", "Copywriting: Post content preparation", "Advertising: Campaign setup via Ads Manager", "Print Design: 1 print file per month", "Reporting: Brief summary of results"],
+    ka: ["სოც. მედია: 10 პოსტი (8 სტატიკური / 2 კარუსელი, კვირაში 3 სთორი)", "Reels / TikTok: 2 ვიდეოს გადაღება + პროფესიონალური მონტაჟი", "Copywriting: პოსტების ტექსტების მომზადება", "Advertising: სარეკლამო კამპანიის აწყობა Ads Manager-ით", "Print Design: თვეში 1 საბეჭდი ფაილის მომზადება", "Reporting: თვის ბოლოს შედეგების მოკლე მიმოხილვა"]
+  },
+  friction: {
+    en: ["Social Media: 10 posts (8 static / 2 carousels, 3 stories/week)", "Reels / TikTok: 4 video shoots or Motion Design (1/week)", "Copywriting: Post content preparation", "Meta & TikTok Advertising: Campaign setup via Ads Manager", "Print Design: 2 print files per month"],
+    ka: ["სოც. მედია: 10 პოსტი (8 სტატიკური / 2 კარუსელი, კვირაში 3 სთორი)", "Reels / TikTok: 4 ვიდეოს გადაღება ან Motion Design", "Copywriting: პოსტების ტექსტების მომზადება", "Meta & TikTok Advertising: სარეკლამო კამპანიის აწყობა", "Print Design: თვეში 2 საბეჭდი ფაილის მომზადება"]
+  }
+};
+
+let currentLang = localStorage.getItem('newtone_lang') || 'en';
+const t = (key) => i18n[currentLang][key] || key;
+
 const app = document.querySelector("#app");
 const navLinks = document.querySelectorAll("[data-nav]");
+const contactPill = document.querySelector(".contact-pill");
+
+function injectLangSwitcher() {
+  const navContainer = document.querySelector(".main-nav");
+  if (!navContainer) return;
+
+  let toggleBtn = document.querySelector(".lang-toggle-btn");
+  if (!toggleBtn) {
+    toggleBtn = document.createElement("button");
+    toggleBtn.className = "lang-toggle-btn";
+    toggleBtn.setAttribute("aria-label", "Toggle Language");
+    toggleBtn.onclick = () => {
+      const nextLang = currentLang === 'en' ? 'ka' : 'en';
+      window.setLang(nextLang);
+    };
+
+    const divider = document.createElement("span");
+    divider.className = "lang-divider";
+
+    // Prepend divider first, then button so button is leftmost
+    navContainer.prepend(divider);
+    navContainer.prepend(toggleBtn);
+  }
+
+  toggleBtn.textContent = currentLang === 'en' ? 'ქარ' : 'Eng';
+}
+
+window.setLang = (lang) => {
+  currentLang = lang;
+  localStorage.setItem('newtone_lang', lang);
+  document.body.className = `lang-${lang}`;
+  document.documentElement.lang = lang;
+  if (app) {
+    app.lang = lang;
+    app.style.display = 'none'; // Tiny hack to force Chrome to repaint locale-aware text
+    setTimeout(() => app.style.display = '', 0);
+  }
+  render();
+};
 
 const UI_ICONS = {
   eye: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`,
@@ -181,27 +328,45 @@ const logoPulse = `<span class="pulse-mark" aria-hidden="true"><i></i><i></i><i>
 
 const OMIT_TEXT_IDS = ["attention", "relevance", "friction", "additional"];
 
-const serviceCard = (service, compact = false, isServicesPageCard = false, hrefOverride) => `
+const serviceCard = (service, compact = false, isServicesPageCard = false, hrefOverride) => {
+  const isLimitedOffer = ["attention", "relevance", "friction"].includes(service.id);
+  const displayPrice = service.price ? service.price.replace("GEL", "").trim() + " " + t('price_gel') : "";
+  const badgeHtml = isServicesPageCard && isLimitedOffer 
+    ? `<span class="card-badge">${t('offer')} - ${displayPrice}</span>` 
+    : "";
+
+  const title = serviceTranslations[service.id] ? serviceTranslations[service.id][currentLang] : service.title;
+  const text = serviceDescTranslations[service.id] ? serviceDescTranslations[service.id][currentLang] : service.text;
+
+  return `
   <a class="service-card ${compact ? "service-list-card" : ""} ${isServicesPageCard ? "services-page-card" : ""}" href="${hrefOverride || `#service-${service.id}`}">
-    ${isServicesPageCard && ["attention", "relevance", "friction"].includes(service.id) ? '<span class="card-badge">Limited time offer</span>' : ""}
+    ${badgeHtml}
     <span class="icon-box ${service.tone}">${service.icon}</span>
-    ${compact ? '<span class="learn">Learn more →</span>' : ""}
-    <h2>${service.title}</h2>
-    ${OMIT_TEXT_IDS.includes(service.id) ? "" : `<p>${service.text}</p>`}
-    ${isServicesPageCard ? `<span class="learn services-page-learn ${service.tone}">Learn More →</span>` : ""}
+    ${compact ? `<span class="learn">${t('learn_more')}</span>` : ""}
+    <h2>${title}</h2>
+    ${OMIT_TEXT_IDS.includes(service.id) ? "" : `<p>${text}</p>`}
+    ${isServicesPageCard ? `<span class="learn services-page-learn ${service.tone}">${t('learn_more')}</span>` : ""}
   </a>
-`;
+`;};
 
 const footerAwareHash = () => window.location.hash.replace("#", "") || "home";
 
 function setActiveNav(route) {
+  document.body.className = `lang-${currentLang}`;
+  document.documentElement.lang = currentLang;
   navLinks.forEach((link) => {
     const key = link.dataset.nav;
+    // Force English labels for the upper navigation bar
+    link.textContent = i18n.en[key] || key;
     const isActive = route === key || (route.startsWith("service") && key === "services");
     link.classList.toggle("is-active", isActive);
     if (isActive) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
+  if (contactPill) {
+    // Force English label for the contact button in the upper bar
+    contactPill.textContent = i18n.en.connect;
+  }
 }
 
 function homePage() {
@@ -209,18 +374,18 @@ function homePage() {
   return `
     <section class="page home-page">
       <div class="hero-copy">
-        <span class="badge"><span>◉</span> Powered by Digital Friction</span>
-        <h1>Unlock Your<br>Digital Potential</h1>
-        <p>ჩვენ ვართ Newtone - ციფრული სტრატეგების გუნდი, რომელიც მარკეტინგულ ქაოსს ზუსტ გათვლებად და შედეგებად აქცევს.</p>
+        <span class="badge"><span>◉</span> ${t('hero_badge')}</span>
+        <h1>${t('hero_title')}</h1>
+        <p>${t('hero_desc')}</p>
         <div class="hero-actions">
-          <a class="gradient-button" href="#services">Get Started →</a>
+          <a class="gradient-button" href="#services">${t('get_started')}</a>
         </div>
       </div>
       <div class="hero-services">
         ${homeCards.map((service) => serviceCard(service)).join("")}
       </div>
       <div class="hero-actions hero-actions-mobile">
-        <a class="gradient-button" href="#services">Get Started</a>
+        <a class="gradient-button" href="#services">${t('get_started')}</a>
       </div>
     </section>
   `;
@@ -249,9 +414,9 @@ function servicesPage() {
     <section class="page">
       <div class="rule"></div> <!-- Divider Line -->
       <div class="upper-box"> 
-        <a class="back-button" href="#home">← Back</a>
-        <h1 class="page-title">Our Services</h1>
-        <p class="subcopy">Comprehensive digital solutions tailored to transform your business</p>
+        <a class="back-button" href="#home">${t('back')}</a>
+        <h1 class="page-title">${t('our_services')}</h1>
+        <p class="subcopy">${t('serv_sub')}</p>
       </div>
       <div class="bottom-box">
         <div class="services-grid">
@@ -281,9 +446,9 @@ function additionalServicesPage() {
     <section class="page">
       <div class="rule"></div>
       <div class="upper-box">
-        <a class="back-button" href="#services">← Back</a>
-        <h1 class="page-title">Additional Services</h1>
-        <p class="subcopy">Specialised offerings available as add-ons.</p>
+        <a class="back-button" href="#services">${t('back')}</a>
+        <h1 class="page-title">${t('add_serv')}</h1>
+        <p class="subcopy">${t('add_sub')}</p>
       </div>
       <div class="bottom-box">
         <div class="services-grid">
@@ -295,7 +460,7 @@ function additionalServicesPage() {
 }
 
 function serviceDetailPage(service, backHref = "#services") {
-  const GROUP_BENEFITS = {
+  const GROUP_BENEFITS_EN = {
     'social-ads': [
       'Meta & TikTok Advertising',
       'სარეკლამო კამპანიის აწყობა Ads Manager-ით',
@@ -328,27 +493,45 @@ function serviceDetailPage(service, backHref = "#services") {
     ],
   };
 
-  const isGrouped = Object.prototype.hasOwnProperty.call(GROUP_BENEFITS, service.id);
-  const bullets = isGrouped ? GROUP_BENEFITS[service.id] : service.bullets;
-  const priceHtml = isGrouped ? '' : `<span class="price">${service.price}</span>`;
-  const connectHref = `#contact?from=${encodeURIComponent(service.title)}`;
+  const GROUP_BENEFITS_KA = {
+    'social-ads': ['Meta & TikTok Advertising', 'სარეკლამო კამპანიის აწყობა Ads Manager-ით', 'ბიუჯეტირება', 'ანალიტიკა / რეპორტინგი'],
+    'content': ['ვიდეოების გადაღება', 'მონტაჟი', 'კონტენტ კალენდარის შექმნა', 'სფიჩ ვიდეოები და ვოისოვერი'],
+    'logo': ['ლოგოს მომზადება/რებრენდინგი', 'ბრენდის სახელმძღვანელოს შექმნა', 'ტიპოგრაფია', 'შეფუთვისა და ეტიკეტის დიზაინი'],
+    'creative': ['სოციალური მედიის პოსტების დიზაინი', 'Motion Design', 'საბეჭდი მასალის მომზადება'],
+    'uiux': ['ლენდინგ ფეიჯი', 'ინტერაქციული პროტოტიპები (Figma)', 'Complete User Flows', 'სრული დიზაინერული სისტემა']
+  };
+
+  const isGrouped = Object.prototype.hasOwnProperty.call(GROUP_BENEFITS_EN, service.id);
+  const isLimitedOffer = ["attention", "relevance", "friction"].includes(service.id);
+  const displayPrice = service.price ? service.price.replace("GEL", "").trim() + " " + t('price_gel') : "";
+  
+  let bullets = [];
+  if (isGrouped) {
+    bullets = currentLang === 'ka' ? GROUP_BENEFITS_KA[service.id] : GROUP_BENEFITS_EN[service.id];
+  } else {
+    bullets = bulletTranslations[service.id] ? bulletTranslations[service.id][currentLang] : service.bullets;
+  }
+
+  // Hide footer price badge if it's a grouped service or a limited offer (since price is in the top badge)
+  const priceHtml = (isGrouped || isLimitedOffer) ? '' : `<span class="price">${displayPrice}</span>`;
+  const title = serviceTranslations[service.id] ? serviceTranslations[service.id][currentLang] : service.title;
 
   return `
     <section class="page">
       <div class="center-hero" style="position: relative;">
-        <a class="back-button" href="${backHref}">← Back</a>
-        <span class="badge"><span>✧</span> ${service.title}</span>
+        <a class="back-button" href="${backHref}">${t('back')}</a>
+        <span class="badge"><span>✧</span> ${title}</span>
       </div>
       <div class="rule"></div>
       <article class="detail-card">
-        ${["attention", "relevance", "friction"].includes(service.id) ? '<span class="card-badge">Limited time offer</span>' : ""}
+        ${isLimitedOffer ? `<span class="card-badge">${t('offer')} - ${displayPrice}</span>` : ""}
         <span class="icon-box ${service.tone}">${service.icon}</span>
-        <h2>${service.title}</h2>
+        <h2>${title}</h2>
         <ul class="check-list">
           ${bullets.map((bullet) => `<li>${bullet}</li>`).join('')}
         </ul>
         <div class="detail-footer">
-          <a class="small-cta" href="#contact">Let's connect →</a>
+          <a class="small-cta" href="#contact">${t('connect_cta')}</a>
           ${priceHtml}
         </div>
       </article>
@@ -360,32 +543,32 @@ function contactPage(backHref = "#home") {
   return `
     <section class="page">
       <div class="center-hero" style="position: relative;">
-        <a class="back-button" href="${backHref}">← Back</a>
-        <span class="badge"><span>✧</span> Full-Service Digital Agency</span>
-        <h1 class="page-title">Contact Us</h1>
-        <p class="subcopy">From branding and UX design to AI-powered automation and marketing, we transform brands with creative and intuitive digital solutions.</p>
+        <a class="back-button" href="${backHref}">${t('back')}</a>
+        <span class="badge"><span>✧</span> ${t('contact_badge')}</span>
+        <h1 class="page-title">${t('contact_title')}</h1>
+        <p class="subcopy">${t('contact_sub')}</p>
       </div>
       <div class="rule"></div>
       <div class="contact-layout">
         <img class="contact-art" src="assets/figma-image-01.png" alt="" />
         <form class="contact-form" id="leadForm" novalidate>
           <label>
-            <span>Name / Lastname</span>
-            <input name="fullName" placeholder="Enter your full name" required />
+            <span>${t('form_name')}</span>
+            <input name="fullName" placeholder="${t('form_name_p')}" required />
           </label>
           <label>
-            <span>Company Name</span>
-            <input name="companyName" placeholder="Enter your company name" />
+            <span>${t('form_company')}</span>
+            <input name="companyName" placeholder="${t('form_company_p')}" />
           </label>
           <label>
-            <span>Phone Number</span>
-            <input name="phone" type="tel" value="+995" placeholder="Enter your phone number" required />
+            <span>${t('form_phone')}</span>
+            <input name="phone" type="tel" value="+995" placeholder="${t('form_phone_p')}" required />
           </label>
           <label>
-            <span>Email Address</span>
-            <input name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
+            <span>${t('form_email')}</span>
+            <input name="email" type="email" autocomplete="email" placeholder="${t('form_email_p')}" required />
           </label>
-          <button class="gradient-button" type="submit">Send</button>
+          <button class="gradient-button" type="submit">${t('form_send')}</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -427,19 +610,23 @@ function attachFormHandler() {
     const payload = { ...Object.fromEntries(formData.entries()), source };
 
     const nameFilled = payload.fullName && payload.fullName.trim().length > 0;
-    const emailFilled = payload.email && payload.email.trim().length > 0;
-    const phoneValue = payload.phone ? payload.phone.trim() : "";
+    const emailFilled = payload.email && payload.email.trim().length > 0 && payload.email.includes('@'); // Basic email format check
+    
+    let phoneValue = payload.phone ? payload.phone.trim() : "";
+    // Clean phone number: allow leading '+' then only digits
+    phoneValue = phoneValue.replace(/[^+\d]/g, '');
+
     // Counts as empty if it only contains the +995 prefix
-    const phoneFilled = phoneValue.length > 4;
+    const phoneFilled = phoneValue.length > 4; // Assuming +995 is the minimum valid prefix
 
     if (!nameFilled || (!emailFilled && !phoneFilled)) {
-      setStatus("Please fill in your name and at least one contact method (Email or Phone).", "is-error");
+      setStatus(t('form_error'), "is-error");
       return;
     }
 
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
+    submitButton.textContent = t('form_sending');
     setStatus("");
 
     try {
@@ -461,7 +648,7 @@ function attachFormHandler() {
 
       // Success logic
       form.reset();
-      submitButton.textContent = "Sent!";
+      submitButton.textContent = t('form_sent');
       submitButton.classList.add("is-sent");
 
       // Track successful form submission as a conversion
@@ -529,6 +716,9 @@ function render() {
   else if (route.startsWith("contact")) app.innerHTML = contactPage(lastRoute);
   else if (route === "services-additional") app.innerHTML = additionalServicesPage();
   else app.innerHTML = statePage("Coming Soon...");
+  
+  setActiveNav(route);
+  injectLangSwitcher();
 
   if (["home", "services", "services-additional"].includes(route)) {
     lastMainPage = route;
@@ -580,8 +770,9 @@ render();
   if (footer && !footer.querySelector(".footer-contact-btn")) {
     const btn = document.createElement("a");
     btn.href = "#contact?from=Footer";
-    btn.className = "gradient-button footer-contact-btn";
-    btn.textContent = "Contact Us";
+    btn.className = "gradient-button footer-contact-btn"; 
     footer.prepend(btn);
   }
+  const btn = document.querySelector(".footer-contact-btn");
+  if (btn) btn.textContent = t('contact_title');
 })();
