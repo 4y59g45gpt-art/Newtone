@@ -151,7 +151,7 @@ textarea {
 
 .logo-img {
   display: block;
-  width: clamp(220px, 13.2vw, 360px);
+  width: clamp(140px, 8.5vw, 180px);
   height: auto;
 }
 
